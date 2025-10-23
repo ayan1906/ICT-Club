@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Club</title>
+    <link rel="stylesheet" href="./css/executive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="https://scontent.fdac198-1.fna.fbcdn.net/v/t39.30808-1/438222663_400583079485916_5109593548579227615_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeFDmbmgCp6u8VbleAV26IEvIBddHiw3oosgF10eLDeiiwmgvzAN30wS0dSJ22mdzceVUKXY87HskHYSWdetnmjS&_nc_ohc=mEGwAVlfmNAQ7kNvwGXrQgP&_nc_oc=AdmVQ1dFKhFsQqiHOFMU-bkSDXtpRFZPnGNY1ZSBFg1f8qwg3yCJFtypRrXVwyLLrvU&_nc_zt=24&_nc_ht=scontent.fdac198-1.fna&_nc_gid=S1nqLuz0V9tNb5HE3oTkCw&oh=00_AfezSCYV6lFRMUutGopir9MhoMVMTbcKRXaJkZmX0TtwFg&oe=68F97799" type="image/x-icon">
+
+</head>
+<body>
+
+    <a href="index.html">
+            <div class="btn">
+        <button class="view_all">
+            <span class="circle2" aria-hidden="true">
+                <span class="icon arrow"></span>
+            </span>
+                <span class="button_text1"><i class='bx bx-user'></i>Home</span>
+        </button>
+    </div>
+    </a>
+
+            <div class="card_wrap1">
+            <div class="excard1">
+                <img src="./images/president.jpg" alt="">
+                <h3>MD.Srabon Ahmed</h3>
+                <p>Rank: <span>PRESIDENT</span></p>
+            </div>
+
+            <div class="excard2">
+                <img src="./images/vp.jpg" alt="">
+                <h3>Dipto Chandra Das</h3>
+                <p>Rank: <span>VICE PRESIDENT</span></p>
+            </div>
+
+            <div class="excard3">
+                <img src="./images/vp2.jpg" alt="">
+                <h3>Miftaul Islam Shuvro</h3>
+                <p>Rank: <span>VICE PRESIDENT</span></p>
+            </div>
+
+            <div class="excard4">
+                <img src="./images/gs.jpg" alt="">
+                <h3>NAYEMEUR Rahman</h3>
+                <p>Rank: <span>SECRETARY</span></p>
+            </div>
+
+        </div>
+
+
+         <div class="card_wrap1">
+            <div class="excard1">
+                <img src="./images/aponvai.jpg" alt="">
+                <h3>MD.Sumon Ahmed Apon</h3>
+                <p>Rank: <span>Assistant Secretary</span></p>
+            </div>
+
+            <div class="excard2">
+                <img src="./images/" alt="">
+                <h3>Sabikun Nahar Saila</h3>
+                <p>Rank: <span>Treasurer</span></p>
+            </div>
+
+            <div class="excard3">
+                <img src="./images/marufvai.jpg" alt="">
+                <h3>Maruf Hasan</h3>
+                <p>Rank: <span>Media & Publication Head</span></p>
+            </div>
+
+            <div class="excard4">
+                <img src="./images/turjovai.jpg" alt="">
+                <h3>Turjo Rema</h3>
+                <p>Rank: <span>Media & Publication</span></p>
+            </div>
+
+        </div>
+
+         <div class="card_wrap1">
+            <div class="excard1">
+                <img src="./images/minhaz.jpg" alt="">
+                <h3>Minhazul Islam Sifat</h3>
+                <p>Rank: <span>Media & Publication</span></p>
+            </div>
+
+            <div class="excard2">
+                <img src="./images/rabbyvai.jpg" alt="">
+                <h3>Dipto Chandra Das</h3>
+                <p>Rank: <span>Volunteer Co-ordianator Head </span></p>
+            </div>
+
+            <div class="excard3">
+                <img src="./images/ayan.jpg" alt="">
+                <h3>Miftaul Islam Shuvro</h3>
+                <p>Rank: <span>Volunteer Co-ordianator</span></p>
+            </div>
+
+            <div class="excard4">
+                <img src="./images/rimi.jpeg" alt="">
+                <h3>Mariyam Islam Rimi</h3>
+                <p>Rank: <span>Club Executive</span></p>
+            </div>
+
+        </div>
+
+         <div class="card_wrap1">
+            <div class="excard1">
+                <img src="./images/jakia.jpeg" alt="">
+                <h3>Jakia Sultana</h3>
+                <p>Rank: <span>Club Executive</span></p>
+            </div>
+
+            
+        </div>
+
+
+        <script>
+// Intersection Observer to trigger animation at 40% view
+const rows = document.querySelectorAll('.card_wrap1');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('animate');
+      observer.unobserve(entry.target); // trigger once
+    }
+  });
+}, { threshold: 0.4 });
+
+rows.forEach(row => observer.observe(row));
+</script>
+</body>
+</html>

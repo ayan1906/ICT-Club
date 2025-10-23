@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT Club</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="https://scontent.fdac198-1.fna.fbcdn.net/v/t39.30808-1/438222663_400583079485916_5109593548579227615_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeFDmbmgCp6u8VbleAV26IEvIBddHiw3oosgF10eLDeiiwmgvzAN30wS0dSJ22mdzceVUKXY87HskHYSWdetnmjS&_nc_ohc=mEGwAVlfmNAQ7kNvwGXrQgP&_nc_oc=AdmVQ1dFKhFsQqiHOFMU-bkSDXtpRFZPnGNY1ZSBFg1f8qwg3yCJFtypRrXVwyLLrvU&_nc_zt=24&_nc_ht=scontent.fdac198-1.fna&_nc_gid=S1nqLuz0V9tNb5HE3oTkCw&oh=00_AfezSCYV6lFRMUutGopir9MhoMVMTbcKRXaJkZmX0TtwFg&oe=68F97799" type="image/x-icon">
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <a href="#"><img src="./images/ictclub.jpg" alt=""></a>
+        </div>
+        <div class="nav_menu">
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about ">About</a></li>
+                <li><a href="index.html#admin">Admin</a></li>
+                <li><a href="index.html#executive">Executive</a></li>
+                <li><a href="index.html#activities">Activities</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+            </ul>
+        </div>
+
+        <div class="reg_form">
+            <a href="login.html"><i class='bx bx-user'></i></a>       
+        </div>
+    </div>
+
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- form -->
+
+    <div id="toast"></div>
+
+<form id="ictForm">
+        <div class="form">
+            <div class="form_header">
+                <h2>ICT Club Registration Form</h2>
+            </div>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="fullname" placeholder="Your Full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="text">Present Address</label>
+                <input type="address" id="name" name="address" placeholder="Your Present Address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="text">Technology</label>
+                <input type="text" id="name" name="technology" placeholder="Your Technology" required>
+            </div>
+
+            <div class="form-group">
+                <label for="number">Admission Roll</label>
+                <input type="number" id="name" name="roll" placeholder="Your Admission Roll" required>
+            </div>
+
+            <div class="form-group">
+                <label for="text">Semester</label>
+                <input type="text" id="name" name="semester" placeholder="Your Semester" required>
+            </div>
+
+            <div class="form-group">
+                <label for="text">Blood Group</label>
+                <input type="text" id="name" name="blood" placeholder="Your Blood Group" required>
+            </div>
+
+            <div class="form-group">
+                <label for="number">Phone Number</label>
+                <input type="number" id="name" name="phone" placeholder="Your Phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="e-mail">E-mail</label>
+                <input type="e-mail" id="name" name="email" placeholder="Your E-mail" required>
+            </div>
+
+            <div class="radio-group">
+                <label>Do you have?</label>
+  
+            <label class="custom-radio">
+                <input type="radio" name="device" value="desktop">
+                <span class="checkmark"></span>
+                Desktop
+            </label>
+
+           <label class="custom-radio">
+                <input type="radio" name="device" value="laptop">
+                <span class="checkmark"></span>
+                Laptop
+           </label>
+
+            <label class="custom-radio">
+                <input type="radio" name="device" value="mobile">
+                <span class="checkmark"></span>
+                Mobile
+                </label>
+        </div>
+
+   <input type="hidden" name="_next" value="index.html">
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+
+        </div>
+    </form>
+
+<script>
+document.getElementById('ictForm').addEventListener('submit', function(e){
+    e.preventDefault(); // default page block
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch("https://formspree.io/f/xjkanbjo", { // তোমার Formspree URL
+        method: "POST",
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Form submitted successfully!");
+            form.reset();
+
+            // Redirect to local index.html
+            window.location.href = "index.html";
+        } else {
+            alert("Form submission failed.");
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Form submission failed.");
+    });
+});
+
+
+
+
+
+
+
+
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+document.getElementById('ictForm').addEventListener('submit', function(e){
+    e.preventDefault(); // prevent default Formspree page
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch("https://formspree.io/f/xjkanbjo", {
+        method: "POST",
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            showToast("Form submitted successfully!");
+            form.reset();
+
+            // Redirect after 3 seconds
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 3000);
+        } else {
+            showToast("Form submission failed!");
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        showToast("Form submission failed!");
+    });
+});
+
+
+
+const loader = document.getElementById('loader');
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e){
+    e.preventDefault(); // prevent immediate navigation
+    loader.style.display = 'flex'; // show loader
+
+    const url = this.href;
+
+    // Use small delay to allow loader to show
+    setTimeout(() => {
+        window.location.href = url; // redirect to index.html#section
+    }, 500); // 0.5s delay
+  });
+});
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
