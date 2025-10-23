@@ -1,0 +1,322 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: url('../images/bg.webp') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    color: #fff;
+    height: 100px;
+}
+
+/* blur overlay layer */
+
+
+.navbar {
+z-index: 99;
+    top: 0;
+    width: 95%;
+    margin: 0 auto;
+    position: sticky;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    /* glass effect */
+    background: rgba(14, 13, 13, 0.25); /* must be transparent */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* for Safari */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+
+    /* animation */
+    opacity: 0; 
+    transform: translateY(-100px); 
+    animation: slideDownNavbar 0.6s ease-out forwards;
+    animation-delay: 0.5s; 
+}
+
+@keyframes slideDownNavbar {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.navbar .logo img{
+    width: 60px;
+    border-radius: 50%;
+}
+
+.navbar .nav_menu ul{
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar .nav_menu ul li{
+    list-style: none;
+
+}
+
+.navbar .nav_menu ul li a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 5px 0;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav_menu ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: aqua;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar .nav_menu ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.navbar .nav_menu ul li a:hover {
+    color: aqua;
+    text-shadow: 1px 1px 3px aqua;
+}
+
+
+.navbar .reg_form a{
+    color: white;
+    font-size: 24px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .reg_form a i{
+    font-size: 28px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.navbar .reg_form a:hover i {
+    transform: translateX(5px); 
+    color: aqua;
+}
+
+/* form */
+/* Form group */
+
+.form_header h2{
+    color: aqua;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 50px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+}
+.form-group input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2); /* transparent white */
+    color: #ffffff; /* typed text color */
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+/* Placeholder color */
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* light white / semi-transparent */
+}
+
+.form-group input:focus {
+    border-color: aqua;
+    outline: none;
+    box-shadow: 1px 1px 8px aqua;
+}
+
+/* Radio buttons */
+.radio-group{
+    display: flex;
+    gap: 20px;
+}
+.radio-group label:first-child {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #fff; 
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-radio {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    user-select: none;
+}
+
+.custom-radio .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.custom-radio input:checked ~ .checkmark {
+    background-color: #007bff; /* Primary blue */
+    border-color: aqua;
+}
+
+.custom-radio .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-radio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-radio .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: black;
+}
+
+button{
+    cursor: pointer;
+    margin: 20px 20px;
+    background-color: #0C0324;
+    color: white;
+    border: 2px solid aqua;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    transition: 0.25s ease-in-out;
+}
+
+button[type="submit"]{
+    background-color: #0C0324;
+    color: white;
+    border: 2px solid aqua;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    transition: 0.25s ease-in-out;
+
+}
+
+button:hover{
+    background-color: aqua;
+    color: black;
+    border: 2px solid #0C0324;
+    
+}
+
+
+
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 128, 255, 0.9); /* nice blue */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 9999;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+#loader {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.7);
+  display: none; /* initially hidden */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid aqua;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

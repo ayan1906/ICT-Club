@@ -1,0 +1,203 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+    background-color: #111; 
+    color: #fff; 
+    overflow-x: hidden; 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+body::before {
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    pointer-events: none; 
+    box-shadow: 0 0 500px 150px rgba(0, 255, 255, 0.03) inset; 
+    
+}
+
+.card_wrap1 {
+  margin-top: 100px;
+  cursor: pointer;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+/* ------------------ CARD DESIGN ------------------ */
+.card_wrap1 div {
+  width: 280px;
+  height: 380px;
+  border: 1px solid black;
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.25s ease-in-out;
+}
+
+/* fade animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* animation active class */
+.card_wrap1.animate div {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* sequential delay */
+.card_wrap1.animate div:nth-child(1) { animation-delay: 0.2s; }
+.card_wrap1.animate div:nth-child(2) { animation-delay: 0.4s; }
+.card_wrap1.animate div:nth-child(3) { animation-delay: 0.6s; }
+.card_wrap1.animate div:nth-child(4) { animation-delay: 0.8s; }
+
+/* image and hover */
+.card_wrap1 img {
+  display: block;
+  margin: 30px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid grey;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.card_wrap1 div:hover img {
+  transform: scale(1.05);
+}
+
+.card_wrap1 h3 {
+  margin-left: 20px;
+}
+
+.card_wrap1 p {
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.card_wrap1 p span {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card_wrap1 div:hover {
+  border-color: aqua;
+  box-shadow: 2px 2px 10px aqua;
+  transform: scale(1.02);
+}
+
+
+a .btn button {
+    display: block;
+    margin-top: 30px;
+    margin-left: 100px;
+    position: relative;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    background: transparent;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+a .btn button.view_all {
+    gap: 10px   ;
+    width: 12rem;
+    height: auto;
+}
+
+a .btn button.view_all .circle2 {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0 -5px;
+    width: 3rem;
+    height: 3rem;
+    background: #111111;
+    border-radius: 1.625rem;
+}
+
+a .btn button.view_all .circle2 .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}   
+
+a .btn button.view_all .circle2 .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+a .btn button.view_all .circle2 .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+
+a .btn button.view_all .button_text1 {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: white;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: center;
+}
+
+a .btn button:hover .circle2 {
+    box-shadow: 1px 1px 10px  aqua;
+    width: 100%;
+}
+
+a .btn button:hover .circle2 .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+
+}
+
+a .btn button:hover .button_text1 {
+    color: aqua;
+}
